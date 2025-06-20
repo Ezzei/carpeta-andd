@@ -43,15 +43,25 @@ function mostrarFrases() {
     }
 }
 
-// Botón NO se escapa
-btnNo.addEventListener('mouseenter', () => {
-    const randomX = Math.floor(Math.random() * 300) - 150;
-    const randomY = Math.floor(Math.random() * 300) - 150;
-    btnNo.style.transform = `translate(${randomX}px, ${randomY}px)`;
-});
+// Movimiento aleatorio del botón "No"
+function moverBotonNo() {
+    const ancho = window.innerWidth - btnNo.offsetWidth;
+    const alto = window.innerHeight - btnNo.offsetHeight;
+
+    const randomX = Math.floor(Math.random() * ancho);
+    const randomY = Math.floor(Math.random() * alto);
+
+    btnNo.style.position = "absolute";
+    btnNo.style.left = `${randomX}px`;
+    btnNo.style.top = `${randomY}px`;
+}
+
+// Soporte para PC (hover) y móviles (touch)
+btnNo.addEventListener('mouseenter', moverBotonNo);
+btnNo.addEventListener('touchstart', moverBotonNo);
 
 // Botón SÍ da una respuesta tierna
 btnSi.addEventListener('click', () => {
-    pregunta.textContent = "¡yeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeei!";
+    pregunta.textContent = "¡yeeeeeeeeeeeeeeeei!";
     botones.style.display = 'none';
 });
