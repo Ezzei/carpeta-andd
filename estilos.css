@@ -1,66 +1,99 @@
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #2b2b2b;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #2b2b2b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
 }
 
 .contenedor {
-    background-color: #1e1e1e;
-    padding: 30px;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
-    max-width: 420px;
-    margin: auto;
+  background-color: #1e1e1e;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  max-width: 420px;
+  margin: auto;
+  position: relative;
+  z-index: 2;
 }
 
 h1 {
-    color: #ffffff;
-    font-size: 24px;
-    transition: all 0.4s ease;
+  color: #ffffff;
+  font-size: 24px;
+  transition: all 0.4s ease;
 }
 
 .botones {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 button {
-    padding: 12px 25px;
-    margin: 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  padding: 12px 25px;
+  margin: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 #btn-si {
-    background-color: #8bc34a;
-    color: white;
+  background-color: #8bc34a;
+  color: white;
 }
 
 #btn-no {
-    background-color: #f44336;
-    color: white;
-    position: relative;
+  background-color: #f44336;
+  color: white;
+  position: relative;
 }
 
 @media (max-width: 600px) {
-    .contenedor {
-        max-width: 90%;
-        padding: 20px;
-    }
+  .contenedor {
+    max-width: 90%;
+    padding: 20px;
+  }
 
-    h1 {
-        font-size: 20px;
-    }
+  h1 {
+    font-size: 20px;
+  }
 
-    button {
-        font-size: 14px;
-        padding: 10px 20px;
-    }
+  button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}
+
+/* Lluvia */
+.lluvia {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.gota {
+  position: absolute;
+  width: 2px;
+  height: 15px;
+  background: rgba(255, 255, 255, 0.5);
+  animation: caer linear infinite;
+}
+
+@keyframes caer {
+  0% {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
 }
