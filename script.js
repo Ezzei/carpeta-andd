@@ -33,12 +33,15 @@ function mostrarFrases() {
 
 mostrarFrases();
 
-// Botón NO se escapa
-btnNo.addEventListener('mouseenter', () => {
+// Botón NO se escapa tanto en escritorio como en celular
+function moverBoton() {
     const randomX = Math.floor(Math.random() * 300) - 150;
     const randomY = Math.floor(Math.random() * 300) - 150;
     btnNo.style.transform = `translate(${randomX}px, ${randomY}px)`;
-});
+}
+
+btnNo.addEventListener('mouseenter', moverBoton);
+btnNo.addEventListener('touchstart', moverBoton);
 
 // Botón SÍ da una respuesta tierna
 btnSi.addEventListener('click', () => {

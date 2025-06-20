@@ -51,3 +51,19 @@ button {
     position: relative;
 }
 
+@media (max-width: 600px) {
+    .contenedor {
+        max-width: 90%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
+
