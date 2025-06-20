@@ -12,14 +12,26 @@ const pregunta = document.getElementById('pregunta');
 const botones = document.getElementById('botones');
 const btnNo = document.getElementById('btn-no');
 const btnSi = document.getElementById('btn-si');
+const audio = document.getElementById('audio-fondo');
+const iniciarBtn = document.getElementById('iniciar-btn');
 
 let i = 0;
+
+// Iniciar al hacer clic en el botón
+iniciarBtn.addEventListener('click', () => {
+    audio.play().then(() => {
+        iniciarBtn.style.display = 'none';
+        mostrarFrases();
+    }).catch((err) => {
+        pregunta.textContent = "El navegador no permitió reproducir el audio 😓";
+        console.error(err);
+    });
+});
 
 function mostrarFrases() {
     if (i < frases.length) {
         pregunta.textContent = frases[i];
 
-        // Mostrar los botones solo en la última frase
         if (i === frases.length - 1) {
             botones.style.display = 'block';
         } else {
@@ -27,11 +39,9 @@ function mostrarFrases() {
         }
 
         i++;
-        setTimeout(mostrarFrases, 3550); // puedes ajustar el tiempo si quieres más lento
+        setTimeout(mostrarFrases, 3500);
     }
 }
-
-mostrarFrases();
 
 // Botón NO se escapa
 btnNo.addEventListener('mouseenter', () => {
@@ -42,6 +52,6 @@ btnNo.addEventListener('mouseenter', () => {
 
 // Botón SÍ da una respuesta tierna
 btnSi.addEventListener('click', () => {
-    pregunta.textContent = "¡yeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeei";
+    pregunta.textContent = "¡yeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeei!";
     botones.style.display = 'none';
 });

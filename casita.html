@@ -7,12 +7,22 @@
 </head>
 <body>
     <div class="contenedor">
-        <h1 id="pregunta">¿Te gustaría salir a tomar un cafecito?</h1>
-        <div class="botones" id="botones">
+        <h1 id="pregunta">Haz clic en el botón para empezar 🎵</h1>
+
+        <!-- Botón para iniciar -->
+        <button id="iniciar-btn">click aqui</button>
+
+        <!-- Botones de respuesta (inicialmente ocultos) -->
+        <div class="botones" id="botones" style="display: none;">
             <button id="btn-si">Sí</button>
             <button id="btn-no">No</button>
         </div>
-    
+    </div>
+
+    <!-- Audio -->
+    <audio id="audio-fondo" loop>
+        <source src="miau.mp3" type="audio/mpeg">
+    </audio>
 
     <script src="script.js"></script>
 </body>
