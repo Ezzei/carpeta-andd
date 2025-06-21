@@ -48,8 +48,6 @@ function moverBotonNo() {
   btnNo.style.left = `${randomX}px`;
   btnNo.style.top = `${randomY}px`;
 }
-.style.top = `${randomY}px`;
-}
 
 btnNo.addEventListener('mouseenter', moverBotonNo);
 btnNo.addEventListener('touchstart', moverBotonNo);
