@@ -39,13 +39,16 @@ function mostrarFrases() {
 }
 
 function moverBotonNo() {
-  const ancho = window.innerWidth - btnNo.offsetWidth;
-  const alto = window.innerHeight - btnNo.offsetHeight;
-  const randomX = Math.floor(Math.random() * ancho);
-  const randomY = Math.floor(Math.random() * alto);
+  const padding = 100;
+  const ancho = window.innerWidth - btnNo.offsetWidth - padding;
+  const alto = window.innerHeight - btnNo.offsetHeight - padding;
+  const randomX = Math.floor(Math.random() * ancho + padding / 2);
+  const randomY = Math.floor(Math.random() * alto + padding / 2);
   btnNo.style.position = "absolute";
   btnNo.style.left = `${randomX}px`;
   btnNo.style.top = `${randomY}px`;
+}
+.style.top = `${randomY}px`;
 }
 
 btnNo.addEventListener('mouseenter', moverBotonNo);
