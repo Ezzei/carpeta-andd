@@ -39,11 +39,19 @@ function mostrarFrases() {
 }
 
 function moverBotonNo() {
-  const padding = 100;
-  const ancho = window.innerWidth - btnNo.offsetWidth - padding;
-  const alto = window.innerHeight - btnNo.offsetHeight - padding;
-  const randomX = Math.floor(Math.random() * ancho + padding / 2);
-  const randomY = Math.floor(Math.random() * alto + padding / 2);
+  const contenedor = document.querySelector('.contenedor');
+  const contWidth = contenedor.offsetWidth;
+  const contHeight = contenedor.offsetHeight;
+
+  const btnWidth = btnNo.offsetWidth;
+  const btnHeight = btnNo.offsetHeight;
+
+  const maxX = contWidth - btnWidth;
+  const maxY = contHeight - btnHeight;
+
+  const randomX = Math.floor(Math.random() * maxX);
+  const randomY = Math.floor(Math.random() * maxY);
+
   btnNo.style.position = "absolute";
   btnNo.style.left = `${randomX}px`;
   btnNo.style.top = `${randomY}px`;
