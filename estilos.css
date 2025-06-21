@@ -1,36 +1,49 @@
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background: url('descarga.jpg') no-repeat center center fixed;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  background: url('descarga.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
 }
 
 .contenedor {
-  background: rgba(30, 30, 30, 0.2); /* fondo semi-transparente */
-  backdrop-filter: blur(10px) brightness(0.9); /* efecto tipo vidrio */
-  -webkit-backdrop-filter: blur(10px) brightness(0.9); /* soporte en Safari */
+  background: rgba(30, 30, 30, 0.2);
+  backdrop-filter: blur(10px) brightness(0.9);
+  -webkit-backdrop-filter: blur(10px) brightness(0.9);
   padding: 30px;
   border-radius: 15px;
   text-align: center;
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.1); /* luz suave alrededor */
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
   max-width: 420px;
   margin: auto;
   position: relative;
   z-index: 2;
-  border: 1px solid rgba(255, 255, 255, 0.1); /* borde tenue */
+  border: 1px solid rgba(255, 255, 255, 0.1);
   transition: background 0.4s ease;
+  animation: aparecer 1.2s ease forwards;
+  opacity: 0;
 }
 
+@keyframes aparecer {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 
 h1 {
   color: #ffffff;
   font-size: 24px;
   transition: all 0.4s ease;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .botones {
@@ -102,4 +115,36 @@ button {
     transform: translateY(100vh);
     opacity: 0;
   }
+}
+
+/* Luciérnagas o estrellas */
+.luces {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.luces::before {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  box-shadow:
+    10vw 20vh white,
+    50vw 40vh white,
+    70vw 10vh white,
+    80vw 70vh white,
+    30vw 80vh white;
+  animation: parpadeo 2s infinite alternate ease-in-out;
+}
+
+@keyframes parpadeo {
+  0% { opacity: 0.2; }
+  100% { opacity: 0.9; }
 }

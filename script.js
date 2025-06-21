@@ -15,6 +15,7 @@ const btnSi = document.getElementById('btn-si');
 const audio = document.getElementById('audio-fondo');
 const iniciarBtn = document.getElementById('iniciar-btn');
 const lluvia = document.getElementById('lluvia');
+const audioYei = document.getElementById('audio-yei');
 
 let i = 0;
 
@@ -38,20 +39,14 @@ function mostrarFrases() {
 }
 
 function moverBotonNo() {
-  const contenedor = document.querySelector('.contenedor');
-  const contRect = contenedor.getBoundingClientRect();
-
-  const maxX = contRect.width - btnNo.offsetWidth;
-  const maxY = contRect.height - btnNo.offsetHeight;
-
-  const randomX = Math.floor(Math.random() * maxX);
-  const randomY = Math.floor(Math.random() * maxY);
-
+  const ancho = window.innerWidth - btnNo.offsetWidth;
+  const alto = window.innerHeight - btnNo.offsetHeight;
+  const randomX = Math.floor(Math.random() * ancho);
+  const randomY = Math.floor(Math.random() * alto);
   btnNo.style.position = "absolute";
   btnNo.style.left = `${randomX}px`;
   btnNo.style.top = `${randomY}px`;
 }
-
 
 btnNo.addEventListener('mouseenter', moverBotonNo);
 btnNo.addEventListener('touchstart', moverBotonNo);
@@ -59,6 +54,7 @@ btnNo.addEventListener('touchstart', moverBotonNo);
 btnSi.addEventListener('click', () => {
   pregunta.textContent = "¡yeeeeeeeeeeeeeeeei!";
   botones.style.display = 'none';
+  audioYei.play();
 });
 
 function crearLluvia() {
