@@ -2,8 +2,10 @@ const frases = [
   "Hola... 🙈",
   "Sé que últimamente todo ha sido algo raro entre nosotros 😶",
   "Pero no quería quedarme con las ganas de hablar contigo bien 😊",
-  "Me encantaría que volvamos a tener esa confianza bonita que teníamos",
-  "Y si me lo permites...",
+  "Me encantaría que volvamos a tener esa confianza bonita que teníamos 👥",
+  "Y si me lo permites....",
+  "Si te parece bien.....",
+  "O hasta aun mejor......",
   "¿Te gustaría salir a tomar un cafecito conmigo? ☕",
   "Solo tú y yo, como amigos... o lo que vaya naciendo, yeso"
 ];
