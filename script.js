@@ -31,20 +31,26 @@ iniciarBtn.addEventListener('click', () => {
 
 function escribirTexto(elemento, texto, velocidad = 50, callback) {
   let i = 0;
+
+  // Reinicia el efecto
+  elemento.classList.remove('typewriter');
+  void elemento.offsetWidth; // Fuerza el reflow
   elemento.textContent = "";
+  elemento.classList.add('typewriter');
 
   function escribir() {
     if (i < texto.length) {
       elemento.textContent += texto.charAt(i);
       i++;
       setTimeout(escribir, velocidad);
-    } else if (callback) {
-      callback();
+    } else {
+      if (callback) callback();
     }
   }
 
   escribir();
 }
+
 
 function mostrarFrases() {
   if (i < frases.length) {
