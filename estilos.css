@@ -148,24 +148,3 @@ button {
   0% { opacity: 0.2; }
   100% { opacity: 0.9; }
 }
-
-
-/* Efecto máquina de escribir */
-.typewriter {
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: .15em solid white;
-  width: 0;
-  animation:
-    typing 3s steps(40, end) forwards,
-    blink .75s step-end infinite;
-}
-
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-
-@keyframes blink {
-  50% { border-color: transparent; }
-}

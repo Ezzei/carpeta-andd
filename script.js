@@ -29,12 +29,30 @@ iniciarBtn.addEventListener('click', () => {
   });
 });
 
+function escribirTexto(elemento, texto, velocidad = 50, callback) {
+  let i = 0;
+  elemento.textContent = "";
+
+  function escribir() {
+    if (i < texto.length) {
+      elemento.textContent += texto.charAt(i);
+      i++;
+      setTimeout(escribir, velocidad);
+    } else if (callback) {
+      callback();
+    }
+  }
+
+  escribir();
+}
+
 function mostrarFrases() {
   if (i < frases.length) {
-    pregunta.textContent = frases[i];
-    botones.style.display = i === frases.length - 1 ? 'block' : 'none';
-    i++;
-    setTimeout(mostrarFrases, 3500);
+    escribirTexto(pregunta, frases[i], 40, () => {
+      botones.style.display = i === frases.length - 1 ? 'block' : 'none';
+      i++;
+      setTimeout(mostrarFrases, 2500); // Espera entre frases
+    });
   }
 }
 
