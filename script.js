@@ -34,9 +34,8 @@ iniciarBtn.addEventListener('click', () => {
 function escribirTexto(elemento, texto, velocidad = 50, callback) {
   let i = 0;
 
-  // Reinicia el efecto
   elemento.classList.remove('typewriter');
-  void elemento.offsetWidth; // Fuerza el reflow
+  void elemento.offsetWidth;
   elemento.textContent = "";
   elemento.classList.add('typewriter');
 
@@ -53,13 +52,12 @@ function escribirTexto(elemento, texto, velocidad = 50, callback) {
   escribir();
 }
 
-
 function mostrarFrases() {
   if (i < frases.length) {
     escribirTexto(pregunta, frases[i], 40, () => {
       botones.style.display = i === frases.length - 1 ? 'block' : 'none';
       i++;
-      setTimeout(mostrarFrases, 2500); // Espera entre frases
+      setTimeout(mostrarFrases, 2500);
     });
   }
 }
@@ -87,9 +85,28 @@ btnNo.addEventListener('mouseenter', moverBotonNo);
 btnNo.addEventListener('touchstart', moverBotonNo);
 
 btnSi.addEventListener('click', () => {
-  pregunta.textContent = "¡yeeeeeeeeeeeeeeeei!";
   botones.style.display = 'none';
   audioYei.play();
+
+  const mensajesFinales = [
+    "¡yeeeeeeeeeeeeeeeei! 😊",
+    "Gracias por darme una oportunidad para hablar contigo 🙌",
+    "Prometo no apresurar nada... solo quiero conocerte mejor y que volvamos a reír como antes 🫶",
+    "Si el destino quiere, que sea el tiempo el que decida lo demás 💫"
+  ];
+
+  let index = 0;
+
+  function mostrarMensajes() {
+    if (index < mensajesFinales.length) {
+      escribirTexto(pregunta, mensajesFinales[index], 40, () => {
+        index++;
+        setTimeout(mostrarMensajes, 2200);
+      });
+    }
+  }
+
+  mostrarMensajes();
 });
 
 function crearLluvia() {
@@ -104,5 +121,3 @@ function crearLluvia() {
 }
 
 crearLluvia();
-
-
