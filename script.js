@@ -7,7 +7,7 @@ const frases = [
   "Si te parece bien.....",
   "O hasta aun mejor......",
   "¿Te gustaría salir a tomar un cafecito conmigo? ☕",
-  "Solo tú y yo, como amigos... o lo que vaya naciendo, yeso"
+  "Solo tú y yo, yeso"
 ];
 
 const pregunta = document.getElementById('pregunta');
@@ -55,7 +55,7 @@ function escribirTexto(elemento, texto, velocidad = 50, callback) {
 function mostrarFrases() {
   if (i < frases.length) {
     escribirTexto(pregunta, frases[i], 40, () => {
-      botones.style.display = i === frases.length - 1 ? 'block' : 'none';
+      botones.style.display = i === frases.length - 1 ? 'block' : 'none'; 
       i++;
       setTimeout(mostrarFrases, 2500);
     });
@@ -90,6 +90,7 @@ btnSi.addEventListener('click', () => {
 
   const mensajesFinales = [
     "¡yeeeeeeeeeeeeeeeei! 😊",
+    "sabias que ibas a decir que si :)",
     "Gracias por darme una oportunidad para hablar contigo 🙌",
     "Prometo no apresurar nada... solo quiero conocerte mejor y que volvamos a reír como antes 🫶",
     "Si el destino quiere, que sea el tiempo el que decida lo demás 💫"
