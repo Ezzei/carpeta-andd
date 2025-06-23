@@ -31,7 +31,7 @@ iniciarBtn.addEventListener('click', () => {
   });
 });
 
-function escribirTexto(elemento, texto, velocidad = 50, callback) {
+function escribirTexto(elemento, texto, velocidad = 75, callback) {
   let i = 0;
 
   elemento.classList.remove('typewriter');
@@ -55,12 +55,19 @@ function escribirTexto(elemento, texto, velocidad = 50, callback) {
 function mostrarFrases() {
   if (i < frases.length) {
     escribirTexto(pregunta, frases[i], 40, () => {
-      botones.style.display = i === frases.length - 1 ? 'block' : 'none'; 
-      i++;
-      setTimeout(mostrarFrases, 2500);
+      setTimeout(() => {
+        pregunta.classList.add('fade-out');
+        setTimeout(() => {
+          pregunta.classList.remove('fade-out');
+          botones.style.display = i === frases.length - 1 ? 'block' : 'none';
+          i++;
+          mostrarFrases();
+        }, 1000); // Duración del desvanecimiento
+      }, 4000); // Tiempo antes de desaparecer
     });
   }
 }
+
 
 function moverBotonNo() {
   const contenedor = document.querySelector('.contenedor');
