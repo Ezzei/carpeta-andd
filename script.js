@@ -6,8 +6,8 @@ const frases = [
   "Y si me lo permites....",
   "Si te parece bien.....",
   "O hasta aun mejor......",
+  "Solo tú y yo",
   "¿Te gustaría salir a tomar un cafecito conmigo? ☕",
-  "Solo tú y yo, yeso"
 ];
 
 const pregunta = document.getElementById('pregunta');
@@ -91,7 +91,6 @@ btnSi.addEventListener('click', () => {
   const mensajesFinales = [
     "¡yeeeeeeeeeeeeeeeei! 😊",
     "sabias que ibas a decir que si :)",
-    "Gracias por darme una oportunidad para hablar contigo 🙌",
     "Prometo no apresurar nada... solo quiero conocerte mejor y que volvamos a reír como antes 🫶",
     "Si el destino quiere, que sea el tiempo el que decida lo demás 💫"
   ];
