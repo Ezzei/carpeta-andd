@@ -107,21 +107,20 @@ btnSi.addEventListener('click', () => {
 function mostrarMensajes() {
   if (index < mensajesFinales.length) {
     escribirTexto(pregunta, mensajesFinales[index], 40, () => {
-      // Espera 4 segundos antes del fade
       setTimeout(() => {
         pregunta.classList.add('fade-out');
-
-        // Espera 1 segundo durante el fade y luego continúa
         setTimeout(() => {
           pregunta.classList.remove('fade-out');
           index++;
           mostrarMensajes();
-        }, 1000); // Duración del fade
-      }, 4000); // Tiempo antes del fade
+        }, 1000); // duración del fade
+      }, 4000); // espera antes de hacer el fade
     });
   }
 }
 
+mostrarMensajes()
+});
 
 function crearLluvia() {
   for (let i = 0; i < 100; i++) {
